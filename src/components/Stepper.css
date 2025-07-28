@@ -1,0 +1,190 @@
+.stepper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.stepper--vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+.stepper--horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.stepper__step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.stepper--vertical .stepper__step-container {
+  width: 100%;
+}
+
+.stepper__step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.stepper__step--clickable {
+  cursor: pointer;
+}
+
+.stepper__step--clickable:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Step Icons */
+.step-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.step-icon__inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Default State - Active Step (Blue with ring) */
+.step-icon--default {
+  background-color: #3B82F6;
+  border: 4px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 1px #3B82F6;
+}
+
+.step-icon--default .step-icon__inner {
+  background-color: white;
+}
+
+/* Disabled State - Future Steps (Gray) */
+.step-icon--disabled {
+  background-color: #E5E7EB;
+  border: 2px solid #E5E7EB;
+}
+
+.step-icon--disabled .step-icon__inner {
+  background-color: #9CA3AF;
+}
+
+/* Hover State - Future Steps on Hover (Light Blue) */
+.step-icon--hover {
+  background-color: #DBEAFE;
+  border: 2px solid #3B82F6;
+}
+
+.step-icon--hover .step-icon__inner {
+  background-color: #3B82F6;
+}
+
+/* Done State - Completed Steps (Blue with Checkmark) */
+.step-icon--done {
+  background-color: #3B82F6;
+  border: 2px solid #3B82F6;
+}
+
+/* Done Disabled State - Completed but Disabled (Gray with Checkmark) */
+.step-icon--done-disabled {
+  background-color: #E5E7EB;
+  border: 2px solid #E5E7EB;
+}
+
+/* Step Labels */
+.step-label {
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.step-label--default {
+  color: #1F2937;
+}
+
+.step-label--disabled {
+  color: #9CA3AF;
+}
+
+.step-label--hover {
+  color: #3B82F6;
+}
+
+.step-label--done {
+  color: #1F2937;
+}
+
+.step-label--done-disabled {
+  color: #9CA3AF;
+}
+
+/* Connectors - Lines between steps */
+.step-connector {
+  width: 2px;
+  height: 32px;
+  margin: 4px 0;
+  transition: background-color 0.2s ease;
+  margin-left: 11px; /* Center with the step icon */
+}
+
+.step-connector--completed {
+  background-color: #3B82F6;
+}
+
+.step-connector--pending {
+  background-color: #E5E7EB;
+}
+
+/* Horizontal layout adjustments */
+.stepper--horizontal .step-connector {
+  width: 32px;
+  height: 2px;
+  margin: 0 4px;
+}
+
+.stepper--horizontal .stepper__step-container {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stepper__step {
+    gap: 8px;
+    padding: 6px;
+  }
+  
+  .step-label {
+    font-size: 12px;
+  }
+  
+  .step-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .step-icon__inner {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .step-connector {
+    height: 24px;
+    margin-left: 9px;
+  }
+}
